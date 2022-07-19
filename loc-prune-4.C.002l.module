@@ -1,0 +1,104 @@
+Source: ../../riscv-gcc/gcc/testsuite/g++.dg/modules/loc-prune-4.C
+Compiler: 13.0.0 20220719 (experimental)
+Modules: 2022/07/18-09:37
+Checking: checking
+Compiled by: GCC 7.5, optimizing
+Reading: mmap
+Writing: mmap
+Lazy limit: 32768
+Lazy hard limit: 65520
+
+Creating globals
+	0:0:1111
+	1:0:2222222222222000000
+	2:0:10000000000111110000311112111110
+	2:32:00312220111110222201111101111002
+	2:64:00020001111111000101111111111111
+	2:96:11111111111111111110000100001000
+	2:128:01000010000000000000000
+	3:0:12220000000000000000000000000000
+	3:32:0000000111111200011000
+	4:0:03000102212112010000000000000000
+	4:32:00000000000000000000000000000011
+	4:64:11302
+Created 173 unique globals, crc=ceb0c1c7
+Fixed span 0 ordinary:[0,32) macro:[2147483648,2147483648)
+Pre span 1 ordinary:[32,128) macro:[2147483648,2147483648)
+Main span 2 ordinary:[128,*) macro:[*,2147483648)
+Completed phase-4 (tokenization) processing
+>Resolving direct import names
+Closing span 2 ordinary:[128,90272) macro:[2147483648,2147483648)
+
+Starting module foo
+CMI is gcm.cache/foo.gcm
+Looking for writables in '::'
+ Looking for writables in '::__cxxabiv1'
+ Looking for writables in '::std'
+Preparing locations
+ Reserved locations [0,32) macro [2147483648,2147483648)
+ Ordinary maps:2 locs:12288 range_bits:5
+ Macro maps:0 locs:0
+Writing section:1 2 depsets
+ Depset:0 decl entity:0 function_decl:'::foo'
+  Ordinary location 29122 output 322
+  Ordinary location 28962 output 162
+ Wrote declaration entity:0 function_decl:'::foo'
+ Depset:1 binding namespace_decl:'::foo'
+Wrote section:1 named-by:'::foo'
+Writing section:2 2 depsets
+ Depset:0 decl entity:1 function_decl:'::baz'
+  Ordinary location 61890 output 8514
+  Ordinary location 61730 output 8354
+ Wrote declaration entity:1 function_decl:'::baz'
+ Depset:1 binding namespace_decl:'::baz'
+Wrote section:2 named-by:'::baz'
+Writing section:3 2 depsets
+ Depset:0 decl entity:2 function_decl:'::bar'
+  Ordinary location 57794 output 4418
+  Ordinary location 57634 output 4258
+ Wrote declaration entity:2 function_decl:'::bar'
+ Depset:1 binding namespace_decl:'::bar'
+Wrote section:3 named-by:'::bar'
+Writing entities
+Writing binding table
+ Bindings '::foo' section:1
+ Bindings '::baz' section:2
+ Bindings '::bar' section:3
+Writing pending-entities
+Writing ordinary location maps
+ 1 source file names
+ Source file[0]=../../riscv-gcc/gcc/testsuite/g++.dg/modules/loc-prune-4.C
+ Span:0 ordinary [16512+12288,+4096)->[0,+4096)
+ Reserved location 0
+ Span:1 ordinary [16512+40960,+8192)->[4096,+8192)
+Wrote 3 clusters, average 148 bytes/cluster
+
+Wrote 562 bytes in 7 blocks
+Wrote 687 bits in 93 bytes
+  38 zero spans of 17.1 bits
+  26 one spans of 1.4 bits
+  15 blocks with 3.8 bits padding
+Wrote:
+  3 decl trees
+  9 other trees
+  48 back references
+  65 null trees
+Cluster sections are [1,4)
+Bindings 3
+Pendings 0
+Entities 3
+Namespaces 0
+Macros 0
+Initializers 0
+Finishing module foo
+Imported 0 modules
+Containing 0 clusters
+Loaded 0 clusters (0%)
+
+Starting module foo
+Writing version=2022/07/18-09:37, inner_crc=64d5571a
+Writing target='riscv64-unknown-elf', host='x86_64-pc-linux-gnu'
+Writing globals=173, crc=ceb0c1c7
+Writing CRC=214b7f43
+Wrote 11 sections
+Finishing module foo
