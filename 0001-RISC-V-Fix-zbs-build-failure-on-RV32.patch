@@ -1,0 +1,24 @@
+From 97a5cb58a4da394b87ce14fe1fb73d36dafba8fb Mon Sep 17 00:00:00 2001
+From: jiawei <jiawei@iscas.ac.cn>
+Date: Thu, 11 Aug 2022 15:14:09 +0800
+Subject: [PATCH] RISC-V: Fix zbs build failure on RV32
+
+---
+ gcc/config/riscv/riscv.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/gcc/config/riscv/riscv.h b/gcc/config/riscv/riscv.h
+index 6f7f4d3fbdc..0cec9baf2c0 100644
+--- a/gcc/config/riscv/riscv.h
++++ b/gcc/config/riscv/riscv.h
+@@ -531,7 +531,7 @@ enum reg_class
+ /* If this is a single bit mask, then we can load it with bseti.  Special
+    handling of SImode 0x80000000 on RV64 is done in riscv_build_integer_1. */
+ #define SINGLE_BIT_MASK_OPERAND(VALUE)                                 \
+-  (pow2p_hwi (VALUE))
++  (pow2p_hwi (VALUE) && (ctz_hwi (VALUE) >= 32))
+
+ /* Stack layout; function entry, exit and calling.  */
+
+-- 
+2.25.1
