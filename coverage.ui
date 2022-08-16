@@ -43,6 +43,13 @@
     </layout>
    </item>
    <item>
+    <widget class="QPushButton" name="coverage_Button">
+     <property name="text">
+      <string>覆盖率计算</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
       <widget class="QPushButton" name="code_coverage_Button">
