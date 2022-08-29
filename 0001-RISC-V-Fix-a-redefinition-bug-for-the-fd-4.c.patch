@@ -1,0 +1,35 @@
+From 46ce60ff81d1bf54ea7b88af74f977ee3512e435 Mon Sep 17 00:00:00 2001
+From: yulong <shiyulong@iscas.ac.cn>
+Date: Mon, 29 Aug 2022 10:16:48 +0800
+Subject: [PATCH V0] RISC-V: Fix a redefinition bug for the fd-4.c
+
+This patch fix a redefinition bug.
+There are have a definition about mode_t in the fd-4.c, but it duplicates the definition in stdio.h.
+
+gcc/testsuite/ChangeLog:
+
+        * gcc.dg/analyzer/fd-4.c: delete the definition of mode_t.
+
+---
+ gcc/testsuite/gcc.dg/analyzer/fd-4.c | 5 -----
+ 1 file changed, 5 deletions(-)
+
+diff --git a/gcc/testsuite/gcc.dg/analyzer/fd-4.c b/gcc/testsuite/gcc.dg/analyzer/fd-4.c
+index 842a26b4364..db342feb6ee 100644
+--- a/gcc/testsuite/gcc.dg/analyzer/fd-4.c
++++ b/gcc/testsuite/gcc.dg/analyzer/fd-4.c
+@@ -12,11 +12,6 @@ int read (int fd, void *buf, int nbytes);
+ #define O_WRONLY 1
+ #define O_RDWR 2
+ 
+-typedef enum {
+-  S_IRWXU
+-  // etc
+-} mode_t;
+-
+ int creat (const char *, mode_t mode);
+ 
+ void
+-- 
+2.17.1
+
